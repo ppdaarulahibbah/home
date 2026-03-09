@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pondok Pesantren Daarul Ahibbah</title>
+
+<style>
+body{
+margin:0;
+font-family:'Arial',sans-serif;
+background:#fdfdfd;
+color:#222;
+line-height:1.6;
+scroll-behavior:smooth;
+}
+
+header{
+position:sticky;top:0;
+background:#fff;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 30px;box-shadow:0 2px 8px rgba(0,0,0,0.1);
+z-index:100;transition: background 0.3s ease;
+}
+
+header.scrolled{background:#f0f0f0;}
+
+.logo{display:flex;align-items:center;gap:10px;font-weight:bold;}
+.logo img{height:40px;transition: transform 0.3s ease;}
+.logo img:hover{transform: scale(1.1);}
+.menu-btn{font-size:28px;color:#333;text-decoration:none;transition: transform 0.3s;}
+.menu-btn:hover{transform: scale(1.2);}
+
+/* banner */
+.banner{width:100%;height:380px;overflow:hidden;position:relative;opacity:0;transform: translateY(30px);transition: 1s ease;}
+.banner.show{opacity:1;transform: translateY(0);}
+.banner a{display:block;width:100%;height:100%;text-decoration:none;}
+.banner-img{width:100%;height:100%;background-image:url("img/psbp.jpg");background-size:cover;background-position:center;transition: transform 0.6s ease;}
+.banner-img:hover{transform: scale(1.05);}
+
+/* video */
+.video{padding:50px 20px;text-align:center;opacity:0;transform: translateY(30px);transition: 1s ease;}
+.video.show{opacity:1;transform: translateY(0);}
+.video h2{margin-bottom:25px;font-size:28px;color:#0f3d2e;}
+
+/* footer */
+footer{background:#f8f8f8;color:#222;padding:40px 20px;text-align:center;font-size:14px;border-top:1px solid #ddd;opacity:0;transform: translateY(30px);transition: 1s ease;}
+footer.show{opacity:1;transform: translateY(0);}
+footer a{color:#0f3d2e;text-decoration:none;}
+.admin{margin-top:15px;opacity:0.8;font-size:13px;}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<div class="logo">
+<img src="img/logo.png" alt="Logo">
+<span>Daarul Ahibbah</span>
+</div>
+<a class="ppdaarulahibbah.github.io/menu" href="/menu/">⇶</a>
+</header>
+
+<section class="banner" id="banner">
+<a href="ppdaarulahibbah.github.io/menu/psbp/">
+<div class="banner-img"></div>
+</a>
+</section>
+
+<section class="video" id="video">
+<h2>Video Profil Pesantren</h2>
+<div class="video-container">
+<iframe src="https://youtu.be/pCsc6Ouf5wE?si=ZVM14tvQBpePGrmA" frameborder="0" allowfullscreen></iframe>
+</div>
+</section>
+
+<footer id="footer">
+<p>Pondok Pesantren Daarul Ahibbah</p>
+<p>Kp. Ciguha Ds. Carenang Kec. Carenang Kab. Serang - Banten</p>
+<p>WA Ustazah Juju : 0857-7379-2271 | WA Ustazah Leni : 0857-8147-3160</p>
+<div class="admin">
+Admin Website:<br>
+Mg Nazril (0831-4666-3437)<br>
+Mg Faiz (0852-6999-0403)
+</div>
+<p>© 2026 Daarul Ahibbah</p>
+</footer>
+
+<script>
+// header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll',()=>{
+if(window.scrollY>50){header.classList.add('scrolled');}
+else{header.classList.remove('scrolled');}
+});
+
+// simple fade-in animation on scroll
+function animateOnScroll(element){
+let pos = element.getBoundingClientRect().top;
+let winH = window.innerHeight;
+if(pos < winH - 50){element.classList.add('show');}
+}
+
+const banner = document.getElementById('banner');
+const video = document.getElementById('video');
+const footer = document.getElementById('footer');
+
+window.addEventListener('scroll',()=>{
+animateOnScroll(banner);
+animateOnScroll(video);
+animateOnScroll(footer);
+});
+// trigger on load
+animateOnScroll(banner);
+animateOnScroll(video);
+animateOnScroll(footer);
+
+console.log("PP Daarul Ahibbah Home Loaded - Animations Active");
+</script>
+
+</body>
+</html>
